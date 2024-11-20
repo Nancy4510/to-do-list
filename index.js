@@ -20,3 +20,27 @@ function addTask() {
     // Line 17 will clear the text from the input once the user has added something to their list 
     inputBox.value = '';
 }
+
+// An event listener click was added 
+listContainer.addEventListener("click", function(e) {
+    // First it will check where the user has clicked and if li was clicked, then it should add the checked class name and if the checked class name is already there, then it will remove it because we have the classList.toggle
+    if(e.target.tagName === "LI") {
+        e.target.classList.toggle("checked");
+    // If a span has been clicked then it will delete the parent element as we have parentElement.remove. The parent element is the LI element so it will remove that LI so the task will be deleted      
+    }else if(e.target.tagName === "SPAN") {
+        e.target.parentElement.remove();
+    }
+}, 
+    false
+);
+
+// This function will save the tasks when you close the browser 
+function saveData() {
+    localStorage.setItem("data", listContainer.innerHTML);
+}
+
+// This function will show the tasks that have been saved 
+function showTask() {
+    listContainer.innerHTML = localStorage.getItem("data");
+}
+showTask();

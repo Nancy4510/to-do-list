@@ -78,6 +78,9 @@ ul li::before {
     height: 28px;
     width: 28px;
     border-radius: 50%;
+    /*
+    When a task has been added, the uncheck circle will be added
+    */
     background-image: url(images/circle-uncheck.svg);
     background-size: cover;
     background-position: center;
@@ -85,11 +88,17 @@ ul li::before {
     left: 8px;
 }
 
+/*
+When a task is clicked/completed, the task will be "crossed off"
+*/
 ul li.checked {
     color: #555;
     text-decoration: line-through;
 }
 
+/*
+When a task is clicked/completed, the checked circle will appear
+*/
 ul li.checked::before {
     background-image: url(images/circle-check-solid.svg);
 }
